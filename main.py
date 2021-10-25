@@ -72,6 +72,17 @@ def is_prime(x):
 def test_is_prime():
     assert is_prime(3) is True
     assert is_prime(4) is False
+    
+def verifica(x):
+    '''
+    verifica daca toate cifrele unui numar sunt prime
+    :param x: numarul pe care il verificam
+    :return: true daca este adevarat, fals in caz contrar
+    '''
+    for i in str(x):
+        if is_prime(int(i))==False:
+            return False
+    return True
 
 def get_longest_prime_digits(l):
     '''
@@ -80,9 +91,9 @@ def get_longest_prime_digits(l):
     :return: True daca toate elementele din lista sunt formate din cifre prime, False in caz contrar
     '''
     for x in l:
-        if is_prime(x%10)==False:
+        if verifica(x)==False:
             return False
-            x=x//10
+
     return True
 
 def test_get_longest_prime_digits():
